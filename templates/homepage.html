@@ -1,0 +1,88 @@
+{% load static from static %}
+<!doctype html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>RiskCalculator</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    crossorigin="anonymous">
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="{% static 'about.css' %}">
+</head>
+
+<body>
+  <header>
+    <div class="container-fluid p-0">
+      <div class="nav-btn navbar navbar-expand-lg navbar-light bg-white">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div class="nav-links">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-link" style="--i: .6s">
+                <a href="#">Home</a>
+              </li>
+              <li class="nav-link" style="--i: .6s">
+                <a href="{% url 'accounts:login' %}">Login/signup</a>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="contactUsHeading">
+    <h1 class="Heading">RISK CALCULATOR</h1>
+  </div>
+  <section>
+    <div class="container-fluid p-0" id="who">
+      <div class="row">
+        <h2>Who Are WE</h2>
+        <p>We examine people using sophesticated ai ml tools and tell them if they are at a risk.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+
+  </section>
+  <div class="connect p-0">
+    <div class="flex-center">
+     <a href=""><i class="fa fa-github fa-4x icon-3d"></i></a>
+     <a href=""><i class="fa fa-facebook fa-4x icon-3d"></i></a>
+     <a href=""><i class="fa fa-instagram fa-4x icon-3d"></i></a>
+     <a href=""><i class="fa fa-twitter fa-4x icon-3d"></i></a>
+    </div>
+  </div>
+
+   <footer>
+    <p>© Copyright 2020 MIT-Manipal</p>
+
+  </footer>
+
+
+</body>
+
+</html>

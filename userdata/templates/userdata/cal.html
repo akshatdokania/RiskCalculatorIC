@@ -1,0 +1,397 @@
+{% load static from static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Risk Calculator</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'calc.css'%}">
+        <link rel="stylesheet" href="{% static 'alignmentbuttons.css' %}">
+        <link rel="stylesheet" href="{% static 'rpage.css' %}">
+        <link rel="stylesheet" href="{% static 'rpage1.css' %}">
+        <link rel="stylesheet" href="{% static 'rpage2.css' %}">
+        <script src="extract_variables.js"></script>
+        <script src="validation.js"></script>
+        <script data-ad-client="ca-pub-1968481225731047" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    </head>
+    <body>
+        <div class="full">
+        <div class="navbar">
+            <h1>RISK CALCULATOR</h1>
+        </div>
+
+        <div class="Image-container">
+            <img src="https://socialimages.sakalmediagroup.com/sakaltimes-prod/s3fs-public/news-story/cover-images/1download_20_282_29.png?z4Sb2.lxpwOlAjwGaVw.sbUce8LfyVAj" width="100%" height="300px">
+            <h2>This web based risk calculator estimates the risk of cytokine storm activaton in Covid-19 patients, which is based on epidemiological, vital signs and laboratory findings.</h2>
+        </div>
+
+        <div class="Analytics">
+            <div class="col">
+              <div class="aos-refresh-onload aos-init aos-animate" data-aos="fade-up">
+                <div id="page-desc-mortality" class="elevation-3 jumbotron" style="padding: 4%;">
+                  <h2>Analytics can calculate the risk of mortality</h2>
+                  <hr>
+                  <div>
+                    <p>Severe COVID-19 patients require the most scarce health care resources, ventilators and
+                      intensive care beds. When the number of patients exceeds the availability of these resources,
+                      physicians have the difficult responsibility to prioritize between patients. To help them make
+                      an informed decision, we developed the mortality calculator for admitted COVID-19 patients.</p>
+                  </div>
+                  <div>
+                    <p>We have developed two calculators that predict <strong>the probability of mortality of a
+                        COVID-19 patient who arrives at a hospital:</strong></p>
+                  </div>
+                  <div>
+                    <ul>
+                      <li>A calculator that uses demographics, vitals, comorbidities and <strong>lab values</strong>.
+                        This risk score can
+                        be used post-triage to assess in a more accurate and detailed way the severity of a COVID-19
+                        patient’s condition. The out of sample AUC is 0.9.</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <ul>
+                      <li>A calculator that uses demographics, vitals and comorbidities, but <strong>without lab
+                          values</strong>. We envision that this model will be used at the time of triage for a
+                        COVID-19 patient who arrives at the hospital to assess in a preliminary way the severity of
+                        his or her condition. The out of sample AUC is 0.82.</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p>Models are only as good as the data they are trained on. We will release new versions of the
+                      calculator as the amount of data we receive from our partner institutions increases. If you are
+                      a medical institution and are willing to contribute to our effort, please reach out to us <a
+                        href="https://www.covidanalytics.io/contact">here</a>.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <div class="para-container">
+            <div class="epidem-container col-md-6 col-sm-12 width=30% ">
+                <h1 class="head">EPIDEMIOLOGY</h1>
+                <form class="epidem">
+                    <br>
+                    <br>
+                    <label class="para_name">
+                        Age:
+                        <input type = "number" id="ag3" onchange="checkAGE()"><span class="error" id="sage" color="red">*</span>
+                    </label>
+                    <br>
+                    <br>
+                  <label class="container">
+                    H/O PULMONARY DISEASE:
+                    <input type="checkbox" id="pd">
+                    <span class="checkmark" onclick="checkPD()"></span>
+                    <span class="error" id="sage" color="red">*</span>
+                  </label>
+                    <br>
+                    <br>
+                    <label class="container">
+                        H/O CKD:
+                        <input type="checkbox" id="ckd">
+                        <span class="checkmark" onclick="checkCKD()"></span><span class="error" id="sage" color="red">*</span>
+                    </label>
+                    <br>
+                    <br>
+                    <label class="container">
+                        H/O DM/(HbA1c > 7.6):
+                        <input type="checkbox" id="dm">
+                        <span class="checkmark" onclick="checkDM()"></span><span class="error" id="sage" color="red">*</span>
+                    </label>
+                    <br>
+                    <br>
+                    <label class="container">
+                        H/O HTN:
+                        <input type="checkbox" id="htn">
+                        <span class="checkmark" onclick="checkHTN()"></span><span class="error" id="sage" color="red">*</span>
+                    </label>
+                    <br>
+                    <br>
+                    <label class="container">
+                        H/O HIV:
+                        <input type="checkbox" id="hiv">
+                        <span class="checkmark" onclick="checkHIV()"></span><span class="error" id="sage" color="red">*</span>
+                    </label>
+                    <br>
+                    <br>
+                    <label class="container">
+                        IMMUNOSUPRESSION
+                        <input type="checkbox" id="imt">
+                        <span class="checkmark" onclick="checkIMT()"></span>
+                        <br>
+                        /TRANSPLANT:
+                        <br>
+                        <span class="error" id="simt">Immunosuppression Field is Important</span>
+                    </label>
+
+                </form>
+
+            </div>
+            <div class="vital-container col-md-6 col-sm-12">
+                <h1 class="head">VITAL SIGNS</h1>
+                <form class="vital">
+                    <br>
+                    <br>
+                    <label class="para_name">
+                        RESPIRATORY RATE:
+                        <input type="number" id="rr" onchange="checkRR()"><span class="error" id="sage" color="red">*</span>
+                    </label>
+                    <br>
+                    <br>
+                    <label class="para_name">
+                        HEART RATE:
+                        <input type="number" id="hr" onchange="checkHR()"><span class="error" id="sage" color="red">*</span>
+                    </label>
+                    <br>
+                    <br>
+                    <label class="para_name">
+                        SPO2:
+                        <input type="number" id="sp" onchange="checkSP()"><span class="error" id="sage" color="red">*</span>
+                    </label>
+                </form>
+
+            </div>
+            <div class="lab-findings col-md-6 col-sm-12">
+                <h1 class="head">LABORATORY FINDINGS</h1>
+                <form class="lab">
+                    <label class="units">Units</label>
+                    <br><br>
+                    <label class="para_name">
+                        DDimer:
+                        <input type="number" id="dd" onchange="checkDD()" placeholder="Unit:&mu;g/mL">
+                        <label class="measure">&mu;g/mL</label>
+                        <button type="button" class="not_app_dd" id="btn_dd" onclick="NA_DD()">N/A</button>
+                        <span class="error" id="sage" color="red">*</span>
+                    </label>
+                    <br>
+                    <br>
+                    <label class="para_name">
+                        CPK:
+                        <input type="number" id="cpk" onchange="checkCPK()" placeholder="Unit:U/L">
+                        <label class="measure">U/L</label>
+                        <button type="button" class="not_app_cpk" id="btn_cpk" onclick="NA_CPK()">N/A</button>
+                        <span class="error" id="sage" color="red">*</span>
+                    </label>
+                    <br>
+                    <br>
+                    <label class="para_name">
+                        CRP:
+                        <input type="number" id="crp" onchange="checkCRP()" placeholder="Unit:mg/L">
+                        <label class="measure">mg/L</label>
+                        <button type="button" class="not_app_crp" id="btn_crp" onclick="NA_CRP()">N/A</button>
+                        <span class="error" id="sage" color="red">*</span>
+                    </label>
+                    <br>
+                    <br>
+                    <label class="para_name">
+                        LDH:
+                        <input type="number" id="ldh" onchange="checkLDH()"placeholder="Unit:U/L">
+                        <label class="measure">U/L</label>
+                        <button type="button" class="not_app_ldh" id="btn_ldh" onclick="NA_LDH()">N/A</button>
+                        <span class="error" id="sage" color="red">*</span>
+                    </label>
+                    <br>
+                    <br>
+                    <label class="para_name">
+                        Troponin:
+                        <input type="number" id="tr" onchange="checkTR()" placeholder="Unit:ng/mL">
+                        <label class="measure">ng/mL</label>
+                        <button type="button" class="not_app_tr" id="btn_tr" onclick="NA_TR()">N/A</button>
+                        <span class="error" id="sage" color="red">*</span>
+                    </label>
+                    <br>
+                    <br>
+                    <label class="para_name">
+                        Ferritin:
+                        <input type="number" id="fr" onchange="checkFR()" placeholder="Unit:&mu;g/l">
+                        <label class="measure">&mu;g/L</label>
+                        <button type="button" class="not_app_fr" id="btn_fr" onclick="NA_FR()">N/A</button>
+                        <span class="error" id="sage" color="red">*</span>
+                    </label>
+                    <br>
+                    <br>
+                    <label class="para_name">
+                        Absolute:
+                        <input type="number" id="alc" onchange="checkALC()">
+                        <button type="button" class="not_app" id="btn_alc" onclick="NA_ALC()">N/A</button>
+                        <br>
+                        Lymphocyte
+                        Count<span class="error" id="sage" color="red">*</span>
+                    </label><br>
+                    <label class="para_name">
+                        CT SCAN
+                        <input type="number" id="ct" onchange="checkCT()">
+                        <button type="button" id="btn_ct" class="not_ct" onclick="NA_CT()">N/A</button><br>
+                        (Corad Score)
+                    </label><br><br>
+                    <label class="para_name">
+                        ABG:
+                        <input type="number" id="apg" onchange="checkAPG()">
+                        <button type="button" class="not_apg" id="btn_apg" onclick="NA_APG()">N/A</button><br>
+                        (P / F ratio)
+                    </label>
+                </form>
+            </div>
+        </div>
+        <div class="btype">
+        <button type="button" id="sub" onclick="checkParam()">CHECK PARAMETERS</button>
+        <button type="button" id ="npat" onclick="newpage()">NEW PATIENT</button>
+        </div>
+        <a href="https://forms.gle/3yrDBz4CeLhnW4kX8" target="_blank"><marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">Please help us to contribute more by providing your valuable feedback</marquee></a>
+
+        <div class="technicaldetails">
+            <div class="col">
+              <div data-aos="fade-up" class="aos-init aos-animate">
+                <div id="mortality-model-desc" class="elevation-3 jumbotron" style="padding: 4%;">
+                  <h2>Technical details</h2>
+                  <div>
+                    <p>Our model was trained on 2781 patients (out of whom 25% deceased) hospitalized due to COVID-19
+                      in: </p>
+                  </div>
+                  <div>
+                    <ul>
+                      <li>The Italian city of Cremona (<a href="https://www.asst-cremona.it/en/home">Azienda
+                          Socio-Sanitaria Territoriale di Cremona</a>). Cremona is one of the most severely hit
+                        italian provinces in Lombardy with several thousand positive cases to date.</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <ul>
+                      <li><a href="https://www.fundacionhm.com/">HM Hospitals</a>, a leading Hospital Group in Spain
+                        with 15 general hospitals and 21 clinical centres that cover the regions of Madrid, Galicia,
+                        and León. </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <ul>
+                      <li><a href="https://hartfordhealthcare.org">Hartford HealthCare</a>, a major hospital network
+                        serving patients throughout Connecticut (USA). </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p>Given our training population, we are most confident about the relevance of our model to: (a)
+                      Western population; (b) Severe to acute patients; (c) Congested hospitals. </p>
+                  </div>
+                  <hr>
+                  <div>The calculator is based on <a href="https://xgboost.readthedocs.io/">XGBoost
+                      classifier.</a><br>The out of sample area under the curve (AUC) on 309 patients (out of whom 25%
+                    deceased) is <span style="color: rgb(128, 0, 32); font-weight: bold;"> 0.82</span>.<br>When
+                    features are missing, the calculator will impute and report their values.</div><br>
+                  <div>
+                    <p>We use <a href="https://github.com/slundberg/shap">SHAP plots</a> to interpret the XGBoost
+                      models. The SHAP plot below summarizes features by their importance and directionality. Features
+                      are ordered by decreasing significance, with the most important feature listed at the top of the
+                      plot. For a given feature, the corresponnding row shows a plot of the feature's impact on the
+                      prediction as the value ranges from its lowest (blue) to highest (red) value. Higher SHAP values
+                      correspond to increased likelihood of having a positive outcome (i.e. mortality or infection).
+                      Thus, features with the color scale oriented blue to red (moving left to right) have increasing
+                      risk as the feature increases, such as Age. Features oriented red to blue have decreasing risk
+                      as the feature increases, such as Oxygen Saturation. Note: gender is encoded as a binary value
+                      (0=Male, 1=Female), so "lower" values of gender correspond to male patients.</p>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        <div class="graph">
+            <img src="https://www.covidanalytics.io/assets/risk_calculators/mortality/model_without_lab.jpg" width="60%" height="20%" class="center" dispaly="center">
+        </div>
+
+
+
+        <div class="information">
+            <pre>
+Moderate and high risk patients require aggressive monitoring of inflammatory milieu or up triaging. Anti-inflammatory therapy with steroid and Anticoagulation recommended.
+*Please note these are mere recommendation from the author based on the available scientific recommendation and no means intended to replace local guidelines.
+
+* compulsary
+            </pre>
+        </div>
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+              <div class="modal-header">
+                <span class="close">&times;</span>
+                <div class="respa">
+                    <span id="risk_fact" class="display_high"></span>
+                </div>
+              </div>
+              <div class="modal-body">
+                <div class="respa">Epidemiology:
+                    <span id="span1"></span>
+                </div>
+                <div class="respa">Vital Signs:
+                    <span id="span2"></span>
+                </div>
+                <div class="respa">Lab-Findings:
+                    <span id="span3"></span>
+                </div>
+            </div>
+              <div class="modal-footer">
+                <h2>PATIENT IS AT HIGH RISK</h2>
+              </div>
+            </div>
+
+          </div>
+        <div id="myModal1" class="modal1">
+
+            <!-- Modal content -->
+            <div class="modal-content1">
+              <div class="modal-header1">
+                <span class="close1">&times;</span>
+                <div class="respa">
+                    <span id="rissk_fact" class="display_low"></span>
+                </div>
+              </div>
+              <div class="modal-body1">
+                <div class="respa">Epidemiology:
+                    <span id="sspan1"></span>
+                </div>
+                <div class="respa">Vital Signs:
+                    <span id="sspan2"></span>
+                </div>
+                <div class="respa">Lab-Findings:
+                    <span id="sspan3"></span>
+                </div>
+            </div>
+              <div class="modal-footer1">
+                <h2>PATIENT IS AT LOW RISK</h2>
+              </div>
+            </div>
+
+          </div>
+          <div id="myModal2" class="modal2">
+
+            <!-- Modal content -->
+            <div class="modal-content2">
+              <div class="modal-header2">
+                <span class="close2">&times;</span>
+                <div class="respa">
+                    <span id="rismsk_fact" class="display_moderate"></span>
+                </div>
+              </div>
+              <div class="modal-body2">
+                <div class="respa">Epidemiology:
+                    <span id="smspan1"></span>
+                </div>
+                <div class="respa">Vital Signs:
+                    <span id="smspan2"></span>
+                </div>
+                <div class="respa">Lab-Findings:
+                    <span id="smspan3"></span>
+                </div>
+            </div>
+              <div class="modal-footer2">
+                <h2>PATIENT AT MODERATE RISK</h2>
+              </div>
+            </div>
+
+          </div>
+        <div class="footer">
+            Made with love from @MIT_MANIPAL
+        </div>
+        </div>
+    </body>
+</html>
