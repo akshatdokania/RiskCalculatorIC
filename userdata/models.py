@@ -9,7 +9,7 @@ class Userdata(models.Model):
     htn       = models.BooleanField()   #history of HTN
     hiv       = models.BooleanField()   #history of HIV
     trans     = models.BooleanField()   #immunosuppression/transplant
-    resprate  = models.IntegerField()   #respiratory rate to be taken from electronics
+    resrate   = models.IntegerField()   #respiratory rate to be taken from electronics
     heartrate = models.IntegerField()   #heart rate to be taken from electronics
     spo       = models.IntegerField()   #spo2 to be taken from electronics
     ddimer    = models.IntegerField()   #ddimer ug/ml
