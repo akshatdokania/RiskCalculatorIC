@@ -11,7 +11,7 @@ def login_view(request):
             if form.is_valid():
                 user = form.get_user()
                 login(request, user)
-                return  redirect('userdata:userinput')
+                return  redirect('userdata:patienttype')
             else:
                 authform = AuthenticationForm()
         if request.POST.get('signup')== 'signup':
@@ -19,7 +19,7 @@ def login_view(request):
             if form.is_valid():
                 user = form.save()
                 login(request, user)
-                return  redirect('userdata:userinput')
+                return  redirect('userdata:patienttype')
             else: userform = UserCreationForm()
     else:
         authform = AuthenticationForm()

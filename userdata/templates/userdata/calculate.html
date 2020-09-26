@@ -7,8 +7,49 @@
   <body>
     <form action="{% url 'userdata:userinput' %}" method="post">
       {% csrf_token %}
-      {{userform.as_p}}
-      <input type="submit" value="Submit">
+      {{userform.hospitalid.label}}
+      {{userform.hospitalid}}
+      {{userform.name.label}}
+      {{userform.name}}
+      {{userform.age.label}}
+      {{userform.age}}
+      {{userform.hpd.label}}
+      {{userform.hpd}}
+      {{userform.ckd.label}}
+      {{userform.ckd}}
+      {{userform.dm.label}}
+      {{userform.dm}}
+      {{userform.htn.label}}
+      {{userform.htn}}
+      {{userform.hiv.label}}
+      {{userform.hiv}}
+      {{userform.trans.label}}
+      {{userform.trans}}
+      {{userform.resrate.label}}
+      {{userform.resrate}}
+      {{userform.heartrate.label}}
+      {{userform.heartrate}}
+      {{userform.spo.label}}
+      {{userform.spo}}
+      {{userform.ddimer.label}}
+      {{userform.ddimer}}
+      {{userform.cpk.label}}
+      {{userform.cpk}}
+      {{userform.crp.label}}
+      {{userform.crp}}
+      {{userform.ldh.label}}
+      {{userform.ldh}}
+      {{userform.tropo.label}}
+      {{userform.tropo}}
+      {{userform.ferr.label}}
+      {{userform.ferr}}
+      {{userform.absolute.label}}
+      {{userform.absolute}}
+      {{userform.ctscan.label}}
+      {{userform.ctscan}}
+      {{userform.abg.label}}
+      {{userform.abg}}
+      <input type="submit" value="Submit" formmethod="POST">
     </form>
   </body>
 </html>

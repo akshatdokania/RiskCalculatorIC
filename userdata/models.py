@@ -1,6 +1,7 @@
 from django.db import models
 
 class Userdata(models.Model):
+    hospitalid= models.SlugField(primary_key=True, unique=True)   #hospital_id for patient  #must be unique 
     name      = models.CharField(max_length=40, default='')      #name
     age       = models.IntegerField()   #agefield
     hpd       = models.BooleanField()   #history of pulmonary disease

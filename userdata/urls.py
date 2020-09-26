@@ -4,5 +4,6 @@ from . import views
 
 app_name = 'userdata'
 urlpatterns = [
-    path('', views.user_input, name='userinput'),
+    path('patienttype/', views.patienttype, name='patienttype'),
+    path('userinput/', views.user_input, name='userinput'),
 ]

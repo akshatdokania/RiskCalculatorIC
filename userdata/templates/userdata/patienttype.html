@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Patient</title>
+  </head>
+  <body>
+    {% if errmsg %}
+    {{errmsg}}
+    {% endif %}
+    <form action="{% url 'userdata:userinput' %}" method="post">
+      {% csrf_token %}
+      <p>New Patient <input type="radio" name="patient" value="new"></p>
+      <p>Existing patient <input type="radio" name="patient" value="existing"></p>
+      <p>Id: <input type="text" name="hospitalid"></p>
+      <input type="submit" formmethod="post">
+    </form>
+  </body>
+</html>
