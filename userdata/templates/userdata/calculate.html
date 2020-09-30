@@ -5,6 +5,9 @@
     <title>trial</title>
   </head>
   <body>
+    {% if errmsg %}
+    <p>{{errmsg}}</p>
+    {% endif %}
     <form action="{% url 'userdata:userinput' %}" method="post">
       {% csrf_token %}
       {{userform.hospitalid.label}}
